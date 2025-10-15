@@ -1,0 +1,1621 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1976d2">
+    <title>اختبار آيات القرآن الكريم</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+    <link rel="manifest" href="data:application/manifest+json;base64,ewogICJuYW1lIjogItin2K7Yqtio2KfYsSDYotmK2KfYqiDYp9mE2YLYsdi32KfZhiDYp9mE2YPYsdin2YUiLAogICJzaG9ydF9uYW1lIjogItin2K7Yqtio2KfYsSDYp9mE2KLZitin2KoiLAogICJsYW5nIjogImFyIiwKICAiZGlyIjogInJ0bCIsCiAgInN0YXJ0X3VybCI6ICIuIiwKICAiZGlzcGxheSI6ICJzdGFuZGFsb25lIiwKICAiYmFja2dyb3VuZF9jb2xvciI6ICIjZmZmZmZmIiwKICAidGhlbWVfY29sb3IiOiAiIzE5NzZkMiIsCiAgImljb25zIjogWwogICAgewogICAgICAic3JjIjogImRhdGE6aW1hZ2UvcG5nO2Jhc2U2NCxpVkJPUncwS0dnb0FBQUFOU1VoRVVnQUFBTUFBQUFEQUNBWUFBQUJYQXZtSEFBQUFCR2RCVFVFQUFMR1BDL3hoQlFBQUFDQmpTRkpOQUFCNkpnQUFnSVFBQVBvQUFBQ0E2QUFBZFRBQUFPcEFBQUE2QUFBQWRUQUFBSGtnQUFEZ0FBQmxTQU1EQndRQUF3SUVBQUE0QUFCMEVBQUFHQUFBQUF3UUFBQU1EQUFBZEJBQUFBSGdRQUFBSUFBQUFCQkFBQUJRQUFBQ1FBQUFBUUFBQXdBQUF3QUFJQUNnQUFCQUFBQUFOZ0FBQSIsInNpemVzIjoiMTkyeDE5MiIsInR5cGUiOiJpbWFnZS9wbmcifSwgeyJzcmMiOiJkYXRhOmltYWdlL3BuZztiYXNlNjQsaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQUFLQUFBQUNBQ0FBQUFCWEF2bUhBQUFBQkdkQlRVRUFBTEdQQy94aEJRQUFBQ0JqU0ZKTkFBQjZKZ0FBZ0lRQUFQb0FBQUNBNEFDQUFRQUFBQ2NkQUFBTmdBQUJZa0FBQTBBQ0JBQUJnQUFEQUFBQUFBQUFCQUIwUUFBQUJvUUFBQUJnQUFBQUFBQUFCQUFBQUFBQUFBQUZBQUFBQlFBQUFDUUFBQUFRQUFBd0FBQXNBQUE9Iiwic2l6ZXMiOiI1MTJ4NTEyIiwidHlwZSI6ImltYWdlL3BuZyJ9XQp9">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Arial', 'Tahoma', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            min-height: 100vh;
+            line-height: 1.6;
+            direction: rtl;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .page {
+            display: none;
+            min-height: 100vh;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .header {
+             text-align: center;
+             margin-bottom: 10px;      /* réduire l’espacement sous le header */
+             padding: 5px 0;          /* diminuer la hauteur interne (au lieu de 40px précédemment) */
+             color: white;
+        }
+
+        .header h1 {
+            font-size: 2em;           /* optionnel : réduire un peu la taille de police */
+            margin-bottom: 10px;
+            //text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 1px;       /* espacement réduit sous le titre */
+        }
+
+        .header p {
+            font-size: 1em;         /* diminuer la taille du sous-titre */
+            opacity: 0.9;
+        }
+
+        .filters-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .filter-group {
+            margin-bottom: 30px;
+        }
+
+        .filter-group h2 {
+            color: #1976d2;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            border-bottom: 2px solid #e3f2fd;
+            padding-bottom: 10px;
+        }
+
+        .filter-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .filter-item {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .filter-item.full-width {
+            flex: 100%;
+        }
+
+        .filter-item label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .filter-item select,
+        .filter-item input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .filter-item select:focus,
+        .filter-item input:focus {
+            outline: none;
+            border-color: #1976d2;
+            box-shadow: 0 0 5px rgba(25,118,210,0.3);
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .radio-option:hover {
+            border-color: #1976d2;
+            background-color: #f5f5f5;
+        }
+
+        .radio-option input[type="radio"] {
+            width: auto;
+            margin: 0;
+        }
+
+        .radio-option input[type="radio"]:checked + span {
+            color: #1976d2;
+            font-weight: bold;
+        }
+
+        .error-msg {
+            color: #f44336;
+            font-size: 14px;
+            margin-top: 5px;
+            padding: 8px;
+            border-radius: 4px;
+            background-color: #ffebee;
+            border: 1px solid #f44336;
+            display: none;
+        }
+
+        .error-msg.show {
+            display: block;
+        }
+
+        .verses-counter {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .counter-box {
+            display: inline-block;
+            background: linear-gradient(45deg, #2196f3, #21cbf3);
+            color: white;
+            padding: 20px 30px;
+            border-radius: 50px;
+            font-size: 1.2em;
+            box-shadow: 0 5px 15px rgba(33,150,243,0.4);
+        }
+
+        .count-number {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin: 0 10px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .start-btn {
+            width: 100%;
+            padding: 20px;
+            font-size: 1.3em;
+            color: white;
+            background: linear-gradient(45deg, #4caf50, #45a049);
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(76,175,80,0.4);
+        }
+
+        .start-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 20px rgba(76,175,80,0.6);
+        }
+
+        .start-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .home-btn {
+            padding: 12px 20px;
+            background: #ff9800;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s ease;
+        }
+
+        .home-btn:hover {
+            background: #f57c00;
+        }
+
+        .quiz-info {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .quiz-stats {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .stat.correct {
+            background: #e8f5e8;
+            color: #2e7d32;
+        }
+
+        .stat.incorrect {
+            background: #ffebee;
+            color: #c62828;
+        }
+
+        .stat.remaining {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+
+        .timer {
+            font-size: 18px;
+            font-weight: bold;
+            color: #1976d2;
+        }
+
+        .quiz-content {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .quiz-mode {
+            display: none;
+        }
+
+        .quiz-mode.active {
+            display: block;
+        }
+
+        .question-card {
+            text-align: center;
+        }
+
+        .question-card h2 {
+            color: #1976d2;
+            margin-bottom: 30px;
+            font-size: 1.8em;
+        }
+
+        .verse-info {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-right: 5px solid #1976d2;
+        }
+
+        .verse-info div {
+            margin: 10px 0;
+            font-size: 1.1em;
+        }
+
+        .surah-name,
+        .verse-number,
+        .page-number,
+        .chapter-number {
+            color: #1976d2;
+            font-weight: bold;
+        }
+
+        .verse-number.highlight {
+            background: #fff3cd;
+            padding: 10px;
+            border-radius: 5px;
+            border: 2px solid #ffc107;
+            font-size: 1.2em;
+        }
+
+        .verse-text-container {
+            margin: 30px 0;
+        }
+
+        .verse-text {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            font-size: 1.4em;
+            line-height: 1.8;
+            color: #2c3e50;
+            border: 2px solid #e9ecef;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .verse-text.hidden {
+            display: none;
+        }
+
+        .audio-container {
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .audio-controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .verse-info-container.hidden {
+            display: none;
+        }
+
+        .verse-details {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-right: 5px solid #1976d2;
+        }
+
+        .verse-details div {
+            margin: 10px 0;
+            font-size: 1.1em;
+        }
+
+        .action-btn {
+            padding: 15px 30px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 10px;
+        }
+
+        .show-btn {
+            background: #2196f3;
+            color: white;
+        }
+
+        .show-btn:hover {
+            background: #1976d2;
+        }
+
+        .answer-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .answer-buttons.hidden {
+            display: none;
+        }
+
+        .answer-btn {
+            padding: 15px 25px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 150px;
+        }
+
+        .correct-btn {
+            background: #4caf50;
+            color: white;
+        }
+
+        .correct-btn:hover {
+            background: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(76,175,80,0.4);
+        }
+
+        .incorrect-btn {
+            background: #f44336;
+            color: white;
+        }
+
+        .incorrect-btn:hover {
+            background: #d32f2f;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(244,67,54,0.4);
+        }
+
+        .next-btn {
+            background: #ff9800;
+            color: white;
+            width: 100%;
+            padding: 20px;
+            font-size: 1.2em;
+            margin-top: 30px;
+        }
+
+        .next-btn:hover {
+            background: #f57c00;
+        }
+
+        .next-btn.hidden {
+            display: none;
+        }
+
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            color: white;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .results-header h1 {
+            font-size: 2.2em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .results-content {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .results-summary {
+            margin-bottom: 40px;
+        }
+
+        .summary-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .summary-card h2 {
+            color: #1976d2;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .summary-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .stat-item.correct {
+            background: #e8f5e8;
+            color: #2e7d32;
+        }
+
+        .stat-item.incorrect {
+            background: #ffebee;
+            color: #c62828;
+        }
+
+        .stat-item.total {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+
+        .stat-item.percentage {
+            background: #fff3e0;
+            color: #ef6c00;
+        }
+
+        .time-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .time-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background: #f5f5f5;
+            border-radius: 8px;
+            border-right: 4px solid #1976d2;
+        }
+
+        .results-history h2 {
+            color: #1976d2;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .history-list {
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .history-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            transition: background 0.3s ease;
+        }
+
+        .history-item:hover {
+            background: #f8f9fa;
+        }
+
+        .history-item.correct {
+            border-right: 4px solid #4caf50;
+        }
+
+        .history-item.incorrect {
+            border-right: 4px solid #f44336;
+        }
+
+        .history-question {
+            flex: 1;
+            color: #1976d2;
+            font-weight: bold;
+        }
+
+        .history-result {
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .history-result.correct {
+            background: #e8f5e8;
+            color: #2e7d32;
+        }
+
+        .history-result.incorrect {
+            background: #ffebee;
+            color: #c62828;
+        }
+
+        .results-actions {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0,0,0,0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            color: white;
+        }
+
+        .loading.hidden {
+            display: none;
+        }
+
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 6px solid #f3f3f3;
+            border-top: 6px solid #1976d2;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loading p {
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 15px; }
+            .header h1 { font-size: 2em; }
+            .filters-section { padding: 20px; }
+            .filter-row { flex-direction: column; }
+            .quiz-header { flex-direction: column; text-align: center; }
+            .quiz-info { justify-content: center; }
+            .quiz-stats { justify-content: center; }
+            .answer-buttons { flex-direction: column; align-items: center; }
+            .answer-btn { width: 100%; max-width: 300px; }
+            .results-header { flex-direction: column; text-align: center; }
+            .results-actions { flex-direction: column; align-items: center; }
+            .results-actions .action-btn { width: 100%; max-width: 300px; }
+            .summary-stats { grid-template-columns: 1fr; }
+            .time-info { grid-template-columns: 1fr; }
+            .history-item { flex-direction: column; align-items: flex-start; gap: 10px; }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 { font-size: 1.6em; }
+            .filter-item { min-width: 100%; }
+            .radio-group { gap: 10px; }
+            .radio-option { padding: 12px; font-size: 14px; }
+            .verse-text { font-size: 1.2em; padding: 20px; }
+            .quiz-content { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- الصفحة الرئيسية -->
+    <div id="home-page" class="page active">
+        <div class="container">
+            <header class="header">
+                <h1>🕌 اختبار آيات القرآن الكريم</h1>
+                <p>تطبيق ويب تقدمي (PWA) لاختبار الآيات القرآنية</p>
+            </header>
+
+            <div class="filters-section">
+                <div class="filter-group">
+                    <h2>📍 تحديد نطاق الاختبار</h2>
+                    
+                    <div class="filter-row">
+                        <div class="filter-item">
+                            <label>من السورة:</label>
+                            <select id="start-surah"></select>
+                        </div>
+                        <div class="filter-item">
+                            <label>من الآية رقم:</label>
+                            <input type="number" id="start-verse" min="1" value="1">
+                            <div class="error-msg" id="start-verse-error"></div>
+                        </div>
+                    </div>
+
+                    <div class="filter-row">
+                        <div class="filter-item">
+                            <label>إلى السورة:</label>
+                            <select id="end-surah"></select>
+                        </div>
+                        <div class="filter-item">
+                            <label>إلى الآية رقم:</label>
+                            <input type="number" id="end-verse" min="1">
+                            <div class="error-msg" id="end-verse-error"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <h2>⚙️ إعدادات الاختبار</h2>
+                    
+                    <div class="filter-row">
+                        <div class="filter-item">
+                            <label>عدد المحاولات:</label>
+                            <select id="attempts-count">
+                                <option value="5">5 محاولات</option>
+                                <option value="10">10 محاولات</option>
+                                <option value="15">15 محاولة</option>
+                                <option value="20">20 محاولة</option>
+                                <option value="infinite">∞ لا نهائي</option>
+                            </select>
+                        </div>
+                        <div class="filter-item">
+                            <label>القارئ:</label>
+                            <select id="reciter-select"></select>
+                        </div>
+                    </div>
+
+                    <div class="filter-row">
+                        <div class="filter-item full-width">
+                            <label>نوع الاختبار:</label>
+                            <div class="radio-group">
+                                <label class="radio-option">
+                                    <input type="radio" name="quiz-mode" value="verse-number" checked>
+                                    <span>الخيار الأول: تخمين نص الآية من رقمها</span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="quiz-mode" value="audio-recitation">
+                                    <span>الخيار الثاني: تحديد الآية من التلاوة (الأهم)</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="verses-counter">
+                    <div class="counter-box">
+                        <span>عدد الآيات في النطاق المحدد:</span>
+                        <span id="verses-count" class="count-number">0</span>
+                        <span>آية</span>
+                    </div>
+                </div>
+
+                <button id="start-quiz" class="start-btn">🚀 بدء الاختبار</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- صفحة الاختبار -->
+    <div id="quiz-page" class="page">
+        <div class="container">
+            <header class="quiz-header">
+                <button id="home-btn" class="home-btn">🏠 العودة للرئيسية</button>
+                <div class="quiz-info">
+                    <div class="quiz-stats">
+                        <span class="stat correct">✅ <span id="correct-count">0</span></span>
+                        <span class="stat incorrect">❌ <span id="incorrect-count">0</span></span>
+                        <span class="stat remaining">📊 <span id="remaining-count">0</span></span>
+                    </div>
+                    <div class="timer">⏱️ <span id="timer-display">00:00:00</span></div>
+                </div>
+            </header>
+
+            <div class="quiz-content">
+                <!-- الوضع 1: رقم الآية -->
+                <div id="mode-1" class="quiz-mode">
+                    <div class="question-card">
+                        <h2>❓ ما نص الآية التالية؟</h2>
+                        <div class="verse-info">
+                            <div class="surah-name">سورة: <span id="current-surah-name"></span></div>
+                            <div class="verse-number">الآية رقم: <span id="current-verse-number"></span></div>
+                            <div class="page-number">الصفحة: <span id="current-page-number"></span></div>
+                        </div>
+                        
+                        <div class="verse-text-container">
+                            <div id="verse-text" class="verse-text hidden"></div>
+                            <button id="show-verse" class="action-btn show-btn">📖 إظهار نص الآية</button>
+                        </div>
+
+                        <div class="answer-buttons hidden" id="answer-buttons">
+                            <button class="answer-btn correct-btn" data-answer="correct">✅ إجابة صحيحة</button>
+                            <button class="answer-btn incorrect-btn" data-answer="incorrect">❌ إجابة خاطئة</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- الوضع 2: التلاوة الصوتية -->
+                <div id="mode-2" class="quiz-mode">
+                    <div class="question-card">
+                        <h2>🎧 استمع للتلاوة وحدد الآية</h2>
+                        
+                        <div class="audio-container">
+                            <audio id="verse-audio" controls style="width: 100%; margin: 20px 0;"></audio>
+                            <div class="audio-controls">
+                                <button id="play-audio" class="action-btn">▶️ تشغيل</button>
+                                <button id="repeat-audio" class="action-btn">🔁 إعادة</button>
+                            </div>
+                        </div>
+
+                        <div class="verse-info-container hidden" id="verse-info-container">
+                            <div class="verse-details">
+                                <div class="surah-name">سورة: <span id="audio-surah-name"></span></div>
+                                <div class="verse-number highlight">الآية رقم: <span id="audio-verse-number"></span></div>
+                                <div class="page-number">الصفحة: <span id="audio-page-number"></span></div>
+                                <div class="chapter-number">الجزء: <span id="audio-chapter-number"></span></div>
+                            </div>
+                            <div id="audio-verse-text" class="verse-text"></div>
+                        </div>
+
+                        <div class="quiz-actions">
+                            <button id="show-verse-info" class="action-btn show-btn">📋 إظهار تفاصيل الآية</button>
+                            
+                            <div class="answer-buttons hidden" id="audio-answer-buttons">
+                                <button class="answer-btn correct-btn" data-answer="correct">✅ إجابة صحيحة</button>
+                                <button class="answer-btn incorrect-btn" data-answer="incorrect">❌ إجابة خاطئة</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="next-question">
+                    <button id="next-question" class="action-btn next-btn hidden">⏭️ السؤال التالي</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- صفحة النتائج -->
+    <div id="results-page" class="page">
+        <div class="container">
+            <header class="results-header">
+                <h1>📊 نتائج الاختبار</h1>
+                <button id="home-btn-results" class="home-btn">🏠 العودة للرئيسية</button>
+            </header>
+
+            <div class="results-content">
+                <div class="results-summary">
+                    <div class="summary-card">
+                        <h2>📈 ملخص النتائج</h2>
+                        <div class="summary-stats">
+                            <div class="stat-item correct">
+                                <span class="stat-label">الإجابات الصحيحة:</span>
+                                <span class="stat-value" id="final-correct">0</span>
+                            </div>
+                            <div class="stat-item incorrect">
+                                <span class="stat-label">الإجابات الخاطئة:</span>
+                                <span class="stat-value" id="final-incorrect">0</span>
+                            </div>
+                            <div class="stat-item total">
+                                <span class="stat-label">إجمالي الأسئلة:</span>
+                                <span class="stat-value" id="final-total">0</span>
+                            </div>
+                            <div class="stat-item percentage">
+                                <span class="stat-label">نسبة النجاح:</span>
+                                <span class="stat-value" id="final-percentage">0%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="time-info">
+                        <div class="time-item">
+                            <span>⏰ وقت البداية:</span>
+                            <span id="start-time">--</span>
+                        </div>
+                        <div class="time-item">
+                            <span>🏁 وقت النهاية:</span>
+                            <span id="end-time">--</span>
+                        </div>
+                        <div class="time-item">
+                            <span>⏱️ إجمالي الوقت:</span>
+                            <span id="total-time">00:00:00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="results-history">
+                    <h2>📝 تاريخ الإجابات</h2>
+                    <div id="history-list" class="history-list"></div>
+                </div>
+
+                <div class="results-actions">
+                    <button id="new-quiz" class="action-btn">🆕 اختبار جديد</button>
+                    <button id="download-results" class="action-btn">💾 تحميل النتائج</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- مؤشر التحميل -->
+    <div id="loading" class="loading hidden">
+        <div class="spinner"></div>
+        <p>جار التحميل...</p>
+    </div>
+
+    <script>
+        // البيانات: السور (حفص 604 صفحات) - فهرس محلي أدنى للتحقق والواجهة
+        const SURAHS = [
+            { n: 1, name: 'الفاتحة', v: 7, p: { s: 1, e: 1 } },
+            { n: 2, name: 'البقرة', v: 286, p: { s: 2, e: 49 } },
+            { n: 3, name: 'آل عمران', v: 200, p: { s: 50, e: 76 } },
+            { n: 4, name: 'النساء', v: 176, p: { s: 77, e: 106 } },
+            { n: 5, name: 'المائدة', v: 120, p: { s: 106, e: 127 } },
+            { n: 6, name: 'الأنعام', v: 165, p: { s: 128, e: 150 } },
+            { n: 7, name: 'الأعراف', v: 206, p: { s: 151, e: 176 } },
+            { n: 8, name: 'الأنفال', v: 75, p: { s: 177, e: 187 } },
+            { n: 9, name: 'التوبة', v: 129, p: { s: 187, e: 207 } },
+            { n: 10, name: 'يونس', v: 109, p: { s: 208, e: 221 } },
+            { n: 11, name: 'هود', v: 123, p: { s: 221, e: 235 } },
+            { n: 12, name: 'يوسف', v: 111, p: { s: 235, e: 248 } },
+            { n: 13, name: 'الرعد', v: 43, p: { s: 249, e: 255 } },
+            { n: 14, name: 'إبراهيم', v: 52, p: { s: 255, e: 261 } },
+            { n: 15, name: 'الحجر', v: 99, p: { s: 262, e: 267 } },
+            { n: 16, name: 'النحل', v: 128, p: { s: 267, e: 281 } },
+            { n: 17, name: 'الإسراء', v: 111, p: { s: 282, e: 293 } },
+            { n: 18, name: 'الكهف', v: 110, p: { s: 293, e: 304 } },
+            { n: 19, name: 'مريم', v: 98, p: { s: 305, e: 312 } },
+            { n: 20, name: 'طه', v: 135, p: { s: 312, e: 322 } },
+            { n: 21, name: 'الأنبياء', v: 112, p: { s: 322, e: 331 } },
+            { n: 22, name: 'الحج', v: 78, p: { s: 332, e: 341 } },
+            { n: 23, name: 'المؤمنون', v: 118, p: { s: 342, e: 349 } },
+            { n: 24, name: 'النور', v: 64, p: { s: 350, e: 359 } },
+            { n: 25, name: 'الفرقان', v: 77, p: { s: 359, e: 366 } },
+            { n: 26, name: 'الشعراء', v: 227, p: { s: 367, e: 377 } },
+            { n: 27, name: 'النمل', v: 93, p: { s: 377, e: 385 } },
+            { n: 28, name: 'القصص', v: 88, p: { s: 385, e: 396 } },
+            { n: 29, name: 'العنكبوت', v: 69, p: { s: 396, e: 404 } },
+            { n: 30, name: 'الروم', v: 60, p: { s: 404, e: 411 } },
+            { n: 31, name: 'لقمان', v: 34, p: { s: 411, e: 414 } },
+            { n: 32, name: 'السجدة', v: 30, p: { s: 415, e: 417 } },
+            { n: 33, name: 'الأحزاب', v: 73, p: { s: 418, e: 427 } },
+            { n: 34, name: 'سبأ', v: 54, p: { s: 428, e: 434 } },
+            { n: 35, name: 'فاطر', v: 45, p: { s: 434, e: 440 } },
+            { n: 36, name: 'يس', v: 83, p: { s: 440, e: 446 } },
+            { n: 37, name: 'الصافات', v: 182, p: { s: 446, e: 453 } },
+            { n: 38, name: 'ص', v: 88, p: { s: 453, e: 458 } },
+            { n: 39, name: 'الزمر', v: 75, p: { s: 458, e: 467 } },
+            { n: 40, name: 'غافر', v: 85, p: { s: 467, e: 477 } },
+            { n: 41, name: 'فصلت', v: 54, p: { s: 477, e: 482 } },
+            { n: 42, name: 'الشورى', v: 53, p: { s: 483, e: 489 } },
+            { n: 43, name: 'الزخرف', v: 89, p: { s: 489, e: 496 } },
+            { n: 44, name: 'الدخان', v: 59, p: { s: 496, e: 499 } },
+            { n: 45, name: 'الجاثية', v: 37, p: { s: 499, e: 502 } },
+            { n: 46, name: 'الأحقاف', v: 35, p: { s: 502, e: 505 } },
+            { n: 47, name: 'محمد', v: 38, p: { s: 507, e: 510 } },
+            { n: 48, name: 'الفتح', v: 29, p: { s: 511, e: 515 } },
+            { n: 49, name: 'الحجرات', v: 18, p: { s: 515, e: 517 } },
+            { n: 50, name: 'ق', v: 45, p: { s: 518, e: 520 } },
+            { n: 51, name: 'الذاريات', v: 60, p: { s: 520, e: 523 } },
+            { n: 52, name: 'الطور', v: 49, p: { s: 523, e: 526 } },
+            { n: 53, name: 'النجم', v: 62, p: { s: 526, e: 528 } },
+            { n: 54, name: 'القمر', v: 55, p: { s: 528, e: 531 } },
+            { n: 55, name: 'الرحمن', v: 78, p: { s: 531, e: 534 } },
+            { n: 56, name: 'الواقعة', v: 96, p: { s: 534, e: 537 } },
+            { n: 57, name: 'الحديد', v: 29, p: { s: 537, e: 541 } },
+            { n: 58, name: 'المجادلة', v: 22, p: { s: 542, e: 545 } },
+            { n: 59, name: 'الحشر', v: 24, p: { s: 545, e: 548 } },
+            { n: 60, name: 'الممتحنة', v: 13, p: { s: 549, e: 551 } },
+            { n: 61, name: 'الصف', v: 14, p: { s: 551, e: 552 } },
+            { n: 62, name: 'الجمعة', v: 11, p: { s: 553, e: 554 } },
+            { n: 63, name: 'المنافقون', v: 11, p: { s: 554, e: 555 } },
+            { n: 64, name: 'التغابن', v: 18, p: { s: 556, e: 557 } },
+            { n: 65, name: 'الطلاق', v: 12, p: { s: 558, e: 559 } },
+            { n: 66, name: 'التحريم', v: 12, p: { s: 560, e: 561 } },
+            { n: 67, name: 'الملك', v: 30, p: { s: 562, e: 564 } },
+            { n: 68, name: 'القلم', v: 52, p: { s: 564, e: 566 } },
+            { n: 69, name: 'الحاقة', v: 52, p: { s: 566, e: 569 } },
+            { n: 70, name: 'المعارج', v: 44, p: { s: 569, e: 570 } },
+            { n: 71, name: 'نوح', v: 28, p: { s: 570, e: 572 } },
+            { n: 72, name: 'الجن', v: 28, p: { s: 572, e: 574 } },
+            { n: 73, name: 'المزمل', v: 20, p: { s: 574, e: 575 } },
+            { n: 74, name: 'المدثر', v: 56, p: { s: 575, e: 577 } },
+            { n: 75, name: 'القيامة', v: 40, p: { s: 577, e: 578 } },
+            { n: 76, name: 'الإنسان', v: 31, p: { s: 578, e: 580 } },
+            { n: 77, name: 'المرسلات', v: 50, p: { s: 580, e: 582 } },
+            { n: 78, name: 'النبأ', v: 40, p: { s: 582, e: 583 } },
+            { n: 79, name: 'النازعات', v: 46, p: { s: 583, e: 585 } },
+            { n: 80, name: 'عبس', v: 42, p: { s: 585, e: 586 } },
+            { n: 81, name: 'التكوير', v: 29, p: { s: 586, e: 587 } },
+            { n: 82, name: 'الانفطار', v: 19, p: { s: 587, e: 587 } },
+            { n: 83, name: 'المطففين', v: 36, p: { s: 587, e: 589 } },
+            { n: 84, name: 'الانشقاق', v: 25, p: { s: 589, e: 590 } },
+            { n: 85, name: 'البروج', v: 22, p: { s: 590, e: 590 } },
+            { n: 86, name: 'الطارق', v: 17, p: { s: 591, e: 591 } },
+            { n: 87, name: 'الأعلى', v: 19, p: { s: 591, e: 592 } },
+            { n: 88, name: 'الغاشية', v: 26, p: { s: 592, e: 592 } },
+            { n: 89, name: 'الفجر', v: 30, p: { s: 593, e: 594 } },
+            { n: 90, name: 'البلد', v: 20, p: { s: 594, e: 594 } },
+            { n: 91, name: 'الشمس', v: 15, p: { s: 595, e: 595 } },
+            { n: 92, name: 'الليل', v: 21, p: { s: 595, e: 595 } },
+            { n: 93, name: 'الضحى', v: 11, p: { s: 596, e: 596 } },
+            { n: 94, name: 'الشرح', v: 8, p: { s: 596, e: 596 } },
+            { n: 95, name: 'التين', v: 8, p: { s: 597, e: 597 } },
+            { n: 96, name: 'العلق', v: 19, p: { s: 597, e: 597 } },
+            { n: 97, name: 'القدر', v: 5, p: { s: 598, e: 598 } },
+            { n: 98, name: 'البينة', v: 8, p: { s: 598, e: 599 } },
+            { n: 99, name: 'الزلزلة', v: 8, p: { s: 599, e: 599 } },
+            { n: 100, name: 'العاديات', v: 11, p: { s: 599, e: 600 } },
+            { n: 101, name: 'القارعة', v: 11, p: { s: 600, e: 600 } },
+            { n: 102, name: 'التكاثر', v: 8, p: { s: 600, e: 600 } },
+            { n: 103, name: 'العصر', v: 3, p: { s: 601, e: 601 } },
+            { n: 104, name: 'الهمزة', v: 9, p: { s: 601, e: 601 } },
+            { n: 105, name: 'الفيل', v: 5, p: { s: 601, e: 601 } },
+            { n: 106, name: 'قريش', v: 4, p: { s: 602, e: 602 } },
+            { n: 107, name: 'الماعون', v: 7, p: { s: 602, e: 602 } },
+            { n: 108, name: 'الكوثر', v: 3, p: { s: 602, e: 602 } },
+            { n: 109, name: 'الكافرون', v: 6, p: { s: 603, e: 603 } },
+            { n: 110, name: 'النصر', v: 3, p: { s: 603, e: 603 } },
+            { n: 111, name: 'المسد', v: 5, p: { s: 603, e: 603 } },
+            { n: 112, name: 'الإخلاص', v: 4, p: { s: 604, e: 604 } },
+            { n: 113, name: 'الفلق', v: 5, p: { s: 604, e: 604 } },
+            { n: 114, name: 'الناس', v: 6, p: { s: 604, e: 604 } }
+        ];
+
+        // القراء
+        const RECITERS = [
+            { id: 'ar.alafasy', name: 'مشاري العفاسي' },
+            { id: 'ar.abdurrahmaanalsudais', name: 'عبد الرحمن السديس' },
+            { id: 'ar.saadalghamdi', name: 'سعد الغامدي' },
+            { id: 'ar.maheralmaeaqly', name: 'ماهر المعيقلي' },
+            { id: 'ar.abdulbasitmurattal', name: 'عبد الباسط عبد الصمد' },
+            { id: 'ar.husary', name: 'محمود خليل الحصري' },
+            { id: 'ar.minshawi', name: 'محمد صديق المنشاوي' },
+            { id: 'ar.shuraym', name: 'سعود الشريم' },
+            { id: 'ar.shaatri', name: 'أبو بكر الشاطري' },
+            { id: 'ar.hanirifai', name: 'هاني الرفاعي' }
+        ];
+
+        // 1) Ajoutez cette nouvelle fonction fetchAyahData en haut de votre app.js
+        async function fetchAyahData(surah, verse) {
+        // Récupère jusqu'au verset demandé avec text_uthmani, page_number et juz_number
+        const res = await fetch(
+        `https://api.quran.com/api/v4/verses/by_chapter/${surah}` +
+        `?language=ar&fields=text_uthmani,page_number,juz_number` +
+        `&limit=${verse}&page=1`
+        );
+        const json = await res.json();
+        if (!json.verses || !json.verses[verse - 1]) {
+        throw new Error('Verset introuvable');
+        }
+        const v = json.verses[verse - 1];
+        return {
+        text: v.text_uthmani,
+        page: v.page_number,
+        juz: v.juz_number
+          };
+        }
+
+        // API base
+        const API_BASE = 'https://api.alquran.cloud/v1';
+
+        // Utility: استخدام الأرقام العربية الغربية (الأرقام الفرنسية) افتراضياً
+        const toWestern = (n) => String(n).replace(/[\u0660-\u0669]/g, (d) => '0123456789'[d.charCodeAt(0) - 0x660]);
+
+        // الحالة
+        const state = {
+            startSurah: 1,
+            startVerse: 1,
+            endSurah: 114,
+            endVerse: 6,
+            attempts: '5',
+            reciter: 'ar.alafasy',
+            mode: 'verse-number',
+            pool: [],
+            asked: new Set(),
+            correct: 0,
+            incorrect: 0,
+            startedAt: null,
+            endedAt: null,
+            activeElapsedMs: 0,
+            lastFocusTs: null,
+            answeredCurrent: false,
+            history: []
+        };
+
+        // DOM
+        const $ = (sel) => document.querySelector(sel);
+
+        // تعبئة القوائم المنسدلة
+        function populateSurahs() {
+            const startSel = $('#start-surah');
+            const endSel = $('#end-surah');
+            startSel.innerHTML = '';
+            endSel.innerHTML = '';
+            SURAHS.forEach(s => {
+                const opt1 = document.createElement('option');
+                opt1.value = s.n; opt1.textContent = `${s.n} - ${s.name}`;
+                startSel.appendChild(opt1);
+                const opt2 = document.createElement('option');
+                opt2.value = s.n; opt2.textContent = `${s.n} - ${s.name}`;
+                endSel.appendChild(opt2);
+            });
+            startSel.value = '1';
+            endSel.value = '114';
+            $('#end-verse').value = getSurahByNumber(114).v;
+        }
+
+        function populateReciters() {
+            const sel = $('#reciter-select');
+            sel.innerHTML = '';
+            RECITERS.forEach(r => {
+                const opt = document.createElement('option');
+                opt.value = r.id; opt.textContent = r.name;
+                sel.appendChild(opt);
+            });
+        }
+
+        function getSurahByNumber(n) { return SURAHS.find(s => s.n === Number(n)); }
+
+        // التحقق والعدادات
+        function validateVerseInputs() {
+            const startSurah = Number($('#start-surah').value);
+            const endSurah = Number($('#end-surah').value);
+            let startVerse = Number($('#start-verse').value) || 1;
+            let endVerse = Number($('#end-verse').value) || 1;
+
+            const sS = getSurahByNumber(startSurah);
+            const eS = getSurahByNumber(endSurah);
+
+            const startErr = $('#start-verse-error');
+            const endErr = $('#end-verse-error');
+            startErr.classList.remove('show');
+            endErr.classList.remove('show');
+
+            if (startVerse < 1) startVerse = 1;
+            if (startVerse > sS.v) {
+                startVerse = sS.v;
+                startErr.textContent = `لقد تجاوزت الحد الأقصى لعدد آيات سورة ${sS.name}. تم ضبطه على ${sS.v}.`;
+                startErr.classList.add('show');
+            }
+
+            if (endVerse < 1) endVerse = 1;
+            if (endVerse > eS.v) {
+                endVerse = eS.v;
+                endErr.textContent = `لقد تجاوزت الحد الأقصى لعدد آيات سورة ${eS.name}. تم ضبطه على ${eS.v}.`;
+                endErr.classList.add('show');
+            }
+
+            $('#end-verse').setAttribute('max', eS.v);
+            $('#start-verse').setAttribute('max', sS.v);
+
+            $('#start-verse').value = startVerse;
+            $('#end-verse').value = endVerse;
+
+            // تحديث العداد
+            const total = countVersesInRange(startSurah, startVerse, endSurah, endVerse);
+            $('#verses-count').textContent = toWestern(total);
+        }
+
+        function countVersesInRange(startSurah, startVerse, endSurah, endVerse) {
+            if (startSurah > endSurah || (startSurah === endSurah && startVerse > endVerse)) return 0;
+            let total = 0;
+            for (let s = startSurah; s <= endSurah; s++) {
+                const S = getSurahByNumber(s);
+                const from = (s === startSurah) ? startVerse : 1;
+                const to = (s === endSurah) ? endVerse : S.v;
+                total += Math.max(0, to - from + 1);
+            }
+            return total;
+        }
+
+        function buildPool() {
+            state.pool = [];
+            const sS = Number($('#start-surah').value);
+            const eS = Number($('#end-surah').value);
+            const sV = Number($('#start-verse').value);
+            const eV = Number($('#end-verse').value);
+            for (let s = sS; s <= eS; s++) {
+                const S = getSurahByNumber(s);
+                const from = (s === sS) ? sV : 1;
+                const to = (s === eS) ? eV : S.v;
+                for (let v = from; v <= to; v++) {
+                    state.pool.push({ surah: s, verse: v });
+                }
+            }
+            // خلط
+            for (let i = state.pool.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [state.pool[i], state.pool[j]] = [state.pool[j], state.pool[i]];
+            }
+            state.asked = new Set();
+        }
+
+        // المؤقت مع معالجة الرؤية
+        function startTimer() {
+            state.startedAt = new Date();
+            state.activeElapsedMs = 0;
+            state.lastFocusTs = Date.now();
+        }
+
+        function setupVisibilityTimer() {
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden) {
+                    state.activeElapsedMs += Date.now() - state.lastFocusTs;
+                } else {
+                    state.lastFocusTs = Date.now();
+                }
+            });
+        }
+
+        function formatDuration(ms) {
+            const totalSec = Math.floor(ms / 1000);
+            const h = String(Math.floor(totalSec / 3600)).padStart(2, '0');
+            const m = String(Math.floor((totalSec % 3600) / 60)).padStart(2, '0');
+            const s = String(totalSec % 60).padStart(2, '0');
+            return `${h}:${m}:${s}`;
+        }
+
+        function renderRunningTimer() {
+            const el = $('#timer-display');
+            function tick() {
+                let elapsed = state.activeElapsedMs;
+                if (!document.hidden) elapsed += Date.now() - state.lastFocusTs;
+                el.textContent = formatDuration(elapsed);
+                requestAnimationFrame(tick);
+            }
+            requestAnimationFrame(tick);
+        }
+
+        // عدم النوم (جرب Wake Lock API)
+        async function preventSleep() {
+            if ('wakeLock' in navigator) {
+                try { await navigator.wakeLock.request('screen'); } catch (e) { /* تجاهل */ }
+            }
+        }
+
+        // التنقل بين الصفحات
+        function showPage(id) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+        }
+
+        function updateStats() {
+            $('#correct-count').textContent = toWestern(state.correct);
+            $('#incorrect-count').textContent = toWestern(state.incorrect);
+            const total = state.pool.length - state.asked.size;
+            $('#remaining-count').textContent = toWestern(total);
+        }
+
+        function pickNext() {
+            for (let i = 0; i < state.pool.length; i++) {
+                const key = `${state.pool[i].surah}:${state.pool[i].verse}`;
+                if (!state.asked.has(key)) return state.pool[i];
+            }
+            return null;
+        }
+
+        async function fetchAyahText(surah, verse) {
+            const ayahNumber = `${surah}:${verse}`;
+            const url = `${API_BASE}/ayah/${ayahNumber}`;
+            const res = await fetch(url);
+            const json = await res.json();
+            if (json.status !== 'OK') throw new Error('خطأ API');
+            return json.data.text;
+        }
+
+        function buildAudioUrl(reciterId, surah, verse) {
+            return `${API_BASE}/ayah/${surah}:${verse}/${reciterId}`;
+        }
+
+        async function loadAudio(reciterId, surah, verse) {
+            const url = buildAudioUrl(reciterId, surah, verse);
+            const res = await fetch(url);
+            const json = await res.json();
+            if (json.status !== 'OK') throw new Error('خطأ API الصوت');
+            return json.data.audio;
+        }
+
+        function currentPageFor(surah) {
+            const s = getSurahByNumber(surah);
+            return `${s.p.s}`;
+        }
+
+        // تدفقات الاختبار
+        async function showQuestion(item) {
+        updateStats();
+        const s = getSurahByNumber(item.surah);
+        $('#current-surah-name').textContent = s.name;
+        $('#current-verse-number').textContent = toWestern(item.verse);
+
+        // ← ancien fallback statique supprimé
+        try {
+        const data = await fetchAyahData(item.surah, item.verse);
+        $('#current-page-number').textContent = toWestern(data.page);
+        } catch (e) {
+        console.warn('Page introuvable, fallback start page', e);
+        $('#current-page-number').textContent = toWestern(s.p.s);
+        }
+
+        $('#verse-text').classList.add('hidden');
+        $('#answer-buttons').classList.add('hidden');
+        $('#next-question').classList.add('hidden');
+        }
+
+
+        async function revealVerse(item) {
+            $('#loading').classList.remove('hidden');
+            try {
+                const text = await fetchAyahText(item.surah, item.verse);
+                $('#verse-text').textContent = text;
+                $('#verse-text').classList.remove('hidden');
+                $('#answer-buttons').classList.remove('hidden');
+            } catch(e) {
+                $('#verse-text').textContent = 'حدث خطأ في جلب نص الآية. حاول مجدداً.';
+                $('#verse-text').classList.remove('hidden');
+            } finally {
+                $('#loading').classList.add('hidden');
+            }
+        }
+
+        async function showAudioQuestion(item) {
+            updateStats();
+            const audioEl = $('#verse-audio');
+            audioEl.src = '';
+            $('#verse-info-container').classList.add('hidden');
+            $('#audio-answer-buttons').classList.add('hidden');
+            $('#next-question').classList.add('hidden');
+            $('#audio-verse-text').textContent = '';
+
+            $('#loading').classList.remove('hidden');
+            try {
+                const audioUrl = await loadAudio(state.reciter, item.surah, item.verse);
+                audioEl.src = audioUrl;
+            } catch(e) {
+                audioEl.removeAttribute('src');
+                $('#audio-verse-text').textContent = 'تعذر تحميل التلاوة. تحقق من الاتصال أو جرّب قارئاً آخر.';
+                $('#verse-info-container').classList.remove('hidden');
+            } finally {
+                $('#loading').classList.add('hidden');
+            }
+        }
+
+        // 2) Remplacez votre revealAudioInfo actuelle par celle-ci :
+        async function revealAudioInfo(item) {
+        // Affiche le nom de la sourate et le numéro du verset
+        const s = getSurahByNumber(item.surah);
+        $('#audio-surah-name').textContent = s.name;
+        $('#audio-verse-number').textContent = toWestern(item.verse);
+
+        try {
+        // Appel unifié pour texte, page et juz
+        const data = await fetchAyahData(item.surah, item.verse);
+
+        // Texte Uthmani
+        $('#audio-verse-text').textContent = data.text;
+
+        // Numéro de page précis
+        $('#audio-page-number').textContent = toWestern(data.page);
+
+        // Numéro de Juz (chapitre)
+        $('#audio-chapter-number').textContent = toWestern(data.juz);
+        } catch (e) {
+        console.error('Erreur fetchAyahData:', e);
+        // Fallback minimal
+        $('#audio-verse-text').textContent = 'تعذر جلب بيانات الآية';
+             $('#audio-page-number').textContent = '';
+        $('#audio-chapter-number').textContent = '';
+        }
+
+       // Affiche le conteneur d’infos et les boutons de réponse
+       $('#verse-info-container').classList.remove('hidden');
+       $('#audio-answer-buttons').classList.remove('hidden');
+       }
+
+       function recordAnswer(item, isCorrect, mode) {
+       if (!item || state.answeredCurrent) return;  // ignore si déjà notée
+       state.answeredCurrent = true;                 // marque la question comme notée
+
+       if (isCorrect) state.correct++;
+       else          state.incorrect++;
+
+       // Désactive les boutons pour empêcher un second clic
+       document.querySelectorAll('#answer-buttons .answer-btn, #audio-answer-buttons .answer-btn')
+       .forEach(btn => btn.disabled = false);
+
+       const s = getSurahByNumber(item.surah);
+       state.history.push({
+        mode,
+        surah: item.surah,
+        surahName: s.name,
+        verse: item.verse,
+        time: new Date().toISOString(),
+        correct: !!isCorrect,
+       });
+
+       $('#next-question').classList.remove('hidden');
+       updateStats();
+       }
+
+
+        function toCSV(rows) {
+            const header = ['mode','surah','surahName','verse','time','correct'];
+            const lines = [header.join(',')];
+            rows.forEach(r => {
+                lines.push([r.mode, r.surah, r.surahName, r.verse, r.time, r.correct].join(','));
+            });
+            return lines.join('\n');
+        }
+
+        function endQuiz() {
+            state.endedAt = new Date();
+            const totalMs = state.activeElapsedMs + (document.hidden ? 0 : (Date.now() - state.lastFocusTs));
+            // الملخص
+            $('#final-correct').textContent = toWestern(state.correct);
+            $('#final-incorrect').textContent = toWestern(state.incorrect);
+            const total = state.correct + state.incorrect;
+            $('#final-total').textContent = toWestern(total);
+            const pct = total ? Math.round((state.correct / total) * 100) : 0;
+            $('#final-percentage').textContent = `${toWestern(pct)}%`;
+
+            $('#start-time').textContent = new Date(state.startedAt).toLocaleString('fr-FR');
+            $('#end-time').textContent = new Date(state.endedAt).toLocaleString('fr-FR');
+            $('#total-time').textContent = formatDuration(totalMs);
+
+            // قائمة التاريخ
+            const list = $('#history-list');
+            list.innerHTML = '';
+            state.history.forEach(h => {
+                const div = document.createElement('div');
+                div.className = `history-item ${h.correct ? 'correct' : 'incorrect'}`;
+                const q = document.createElement('div');
+                q.className = 'history-question';
+                q.textContent = `سورة ${h.surahName} - الآية ${toWestern(h.verse)}`;
+                const r = document.createElement('div');
+                r.className = `history-result ${h.correct ? 'correct' : 'incorrect'}`;
+                r.textContent = h.correct ? '✅ صحيح' : '❌ خطأ';
+                div.appendChild(q); div.appendChild(r);
+                list.appendChild(div);
+            });
+
+            showPage('results-page');
+        }
+
+        async function nextQuestionFlow() {
+            state.answeredCurrent = false;  // nouvelle question, pas encore notée
+            const attempts = $('#attempts-count').value;
+            const totalRequired = attempts === 'infinite' ? Infinity : Number(attempts);
+            const answered = state.correct + state.incorrect;
+            if (answered >= totalRequired || state.asked.size >= state.pool.length) {
+                endQuiz();
+                return;
+            }
+
+            const item = pickNext();
+            if (!item) { endQuiz(); return; }
+            state.asked.add(`${item.surah}:${item.verse}`);
+
+            const mode = state.mode;
+            if (mode === 'verse-number') {
+            $('#mode-1').classList.add('active');
+            $('#mode-2').classList.remove('active');
+            await showQuestion(item);  // ← Ajoutez "await" ici
+            } else {
+            $('#mode-1').classList.remove('active');
+            $('#mode-2').classList.add('active');
+            showAudioQuestion(item);   // ← Reste inchangé
+            }
+
+            // ربط أزرار الإجراء بالعنصر الحالي
+            $('#show-verse').onclick = () => revealVerse(item);
+            $('#show-verse-info').onclick = () => revealAudioInfo(item);
+            $('#play-audio').onclick = () => $('#verse-audio').play();
+            $('#repeat-audio').onclick = () => { const a = $('#verse-audio'); a.currentTime = 0; a.play(); };
+
+            document.querySelectorAll('#answer-buttons .answer-btn').forEach(btn => {
+                btn.onclick = () => {
+                    const isCorrect = btn.dataset.answer === 'correct';
+                    recordAnswer(item, isCorrect, 'verse-number');
+                };
+            });
+            document.querySelectorAll('#audio-answer-buttons .answer-btn').forEach(btn => {
+                btn.onclick = () => {
+                    const isCorrect = btn.dataset.answer === 'correct';
+                    recordAnswer(item, isCorrect, 'audio-recitation');
+                };
+            });
+
+            $('#next-question').onclick = nextQuestionFlow;
+        }
+
+        function startQuiz() {
+            state.correct = 0; state.incorrect = 0; state.history = [];
+            state.mode = document.querySelector('input[name="quiz-mode"]:checked').value;
+            state.reciter = $('#reciter-select').value;
+            buildPool();
+            startTimer();
+            showPage('quiz-page');
+            updateStats();
+            nextQuestionFlow();
+            preventSleep();
+        }
+
+        function bindUI() {
+            populateSurahs();
+            populateReciters();
+            validateVerseInputs();
+
+            $('#start-surah').addEventListener('change', () => validateVerseInputs());
+            $('#start-verse').addEventListener('input', () => validateVerseInputs());
+            $('#end-surah').addEventListener('change', () => {
+                const eS = getSurahByNumber(Number($('#end-surah').value));
+                $('#end-verse').value = eS.v;
+                validateVerseInputs();
+            });
+            $('#end-verse').addEventListener('input', () => validateVerseInputs());
+
+            $('#start-quiz').addEventListener('click', startQuiz);
+            $('#home-btn').addEventListener('click', () => showPage('home-page'));
+            $('#home-btn-results').addEventListener('click', () => showPage('home-page'));
+            $('#new-quiz').addEventListener('click', () => showPage('home-page'));
+
+            $('#download-results').addEventListener('click', () => {
+                const blob = new Blob([toCSV(state.history)], { type: 'text/csv;charset=utf-8;' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url; a.download = 'results.csv';
+                a.click();
+                URL.revokeObjectURL(url);
+            });
+
+            renderRunningTimer();
+            setupVisibilityTimer();
+        }
+
+        window.addEventListener('load', bindUI);
+
+        // تسجيل Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                const swCode = `
+                    const CACHE_NAME = 'quran-quiz-pwa-v1';
+                    const OFFLINE_URLS = ['/'];
+                    
+                    self.addEventListener('install', (event) => {
+                        event.waitUntil(
+                            caches.open(CACHE_NAME).then((cache) => cache.addAll(OFFLINE_URLS))
+                        );
+                        self.skipWaiting();
+                    });
+                    
+                    self.addEventListener('activate', (event) => {
+                        event.waitUntil(
+                            caches.keys().then((keys) => Promise.all(keys.map((key) => {
+                                if (key !== CACHE_NAME) return caches.delete(key);
+                            })))
+                        );
+                        self.clients.claim();
+                    });
+                    
+                    self.addEventListener('fetch', (event) => {
+                        const req = event.request;
+                        const url = new URL(req.url);
+                        
+                        if (url.origin === self.location.origin) {
+                            event.respondWith(
+                                caches.match(req).then((cached) => cached || fetch(req))
+                            );
+                            return;
+                        }
+                        
+                        if (/alquran\\.cloud|quran\\.com|cdn/.test(url.hostname)) {
+                            event.respondWith(
+                                fetch(req)
+                                    .then((res) => {
+                                        const resClone = res.clone();
+                                        caches.open(CACHE_NAME).then((cache) => cache.put(req, resClone));
+                                        return res;
+                                    })
+                                    .catch(() => caches.match(req))
+                            );
+                            return;
+                        }
+                        
+                        event.respondWith(
+                            fetch(req).catch(() => caches.match(req))
+                        );
+                    });
+                `;
+                
+                const blob = new Blob([swCode], { type: 'application/javascript' });
+                const swUrl = URL.createObjectURL(blob);
+                
+                navigator.serviceWorker.register(swUrl)
+                    .then(registration => {
+                        console.log('SW registered: ', registration);
+                    })
+                    .catch(registrationError => {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+            });
+        }
+    </script>
+</body>
+</html>
