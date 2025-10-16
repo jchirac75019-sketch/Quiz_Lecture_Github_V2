@@ -680,18 +680,20 @@
            .quiz-header { flex-direction: column; text-align: center; }
            .quiz-info { justify-content: center; }
            .quiz-stats { justify-content: center; }
-           .answer-buttons { 
-           flex-direction: column; 
-           align-items: center; 
-           margin-top: 10px;      /* compactage */
-           gap: 10px;             /* compactage */
+           .answer-buttons {
+               display: flex;
+               flex-direction: row;          /* ligne unique */
+               justify-content: space-between; /* espace entre boutons */
+               flex-wrap: nowrap;            /* interdit le retour à la ligne */
+               gap: 8px;                     /* petit écart horizontal */
+               margin-top: 10px;
        }
-         /* Force côte-à-côte sur mobile */
-          .answer-buttons {
-             flex-direction: row !important;
-             justify-content: center;
-             flex-wrap: wrap;
+          .answer-buttons .answer-btn {
+              flex: 1;                      /* largeur égale */
+              min-width: 0;                 /* autorise la réduction */
+              max-width: calc(50% - 4px);   /* deux fois 50% moins la moitié du gap */
        }
+
            .answer-btn { width: 100%; max-width: 300px; }
            .results-header { flex-direction: column; text-align: center; }
            .results-actions { flex-direction: column; align-items: center; }
