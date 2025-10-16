@@ -686,6 +686,12 @@
            margin-top: 10px;      /* compactage */
            gap: 10px;             /* compactage */
        }
+         /* Force côte-à-côte sur mobile */
+          .answer-buttons {
+             flex-direction: row !important;
+             justify-content: center;
+             flex-wrap: wrap;
+       }
            .answer-btn { width: 100%; max-width: 300px; }
            .results-header { flex-direction: column; text-align: center; }
            .results-actions { flex-direction: column; align-items: center; }
