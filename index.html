@@ -218,7 +218,7 @@
             background: rgba(255, 255, 255, 0.95);
             padding: 20px;
             border-radius: 12px;
-            margin-bottom: 30px;
+            margin-bottom: 10px; /* au lieu de 30px, réduit l’espace */
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             flex-wrap: wrap;
             gap: 20px;
@@ -285,6 +285,7 @@
             border-radius: 15px;
             padding: 15px;           /* Réduit de 30px à 15px */
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-top: 10px; /* élimine l’espace par défaut, ajustez si nécessaire */
         }
 
         .quiz-mode {
@@ -720,6 +721,12 @@
           .audio-controls {
            margin-top: 2px;
            gap: 6px;          /* Vous pouvez réduire aussi le gap */
+       }
+          .quiz-header {
+           margin-bottom: 8px;  /* encore plus compact sur mobile */
+       }
+          .quiz-content {
+           margin-top: 8px;
        }
    }
 
