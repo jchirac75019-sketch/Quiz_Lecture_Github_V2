@@ -1360,9 +1360,12 @@
 
             $('#loading').classList.remove('hidden');
             try {
-                const audioUrl = await loadAudio(state.reciter, item.surah, item.verse);
+                 const audioUrl = await loadAudio(state.reciter, item.surah, item.verse);
                 audioEl.src = audioUrl;
+                // Lecture automatique dès que l’audio est chargé
+                audioEl.play().catch(() => {});
             } catch(e) {
+
                 audioEl.removeAttribute('src');
                 $('#audio-verse-text').textContent = 'تعذر تحميل التلاوة. تحقق من الاتصال أو جرّب قارئاً آخر.';
                 $('#verse-info-container').classList.remove('hidden');
@@ -1522,19 +1525,32 @@
         }
 
         function startQuiz() {
-            state.correct = 0; state.incorrect = 0; state.history = [];
-            state.mode = document.querySelector('input[name="quiz-mode"]:checked').value;
-            state.reciter = $('#reciter-select').value;
-            buildPool();
-            startTimer();
-            showPage('quiz-page');
-            updateStats();
-            nextQuestionFlow();
-            // Active le Wake Lock dès le début du quiz
-            preventSleep();
+          state.correct = 0;
+          state.incorrect = 0;
+          state.history = [];
 
-            preventSleep();
+       // Récupère le mode et le récitateur sélectionnés
+          state.mode = document.querySelector('input[name="quiz-mode"]:checked').value;
+          state.reciter = $('#reciter-select').value;
+
+       // Prépare le quiz
+          buildPool();
+          startTimer();
+          showPage('quiz-page');
+          updateStats();
+
+       // Affiche la première question
+          nextQuestionFlow();
+
+       // Si on est en mode audio, relance la lecture immédiatement
+          if (state.mode === 'audio-recitation') {
+             const item = pickNext();
+             showAudioQuestion(item);
         }
+
+       // Empêche la mise en veille
+          preventSleep();
+      }
 
         function bindUI() {
             populateSurahs();
