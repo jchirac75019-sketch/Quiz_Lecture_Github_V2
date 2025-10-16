@@ -1219,8 +1219,10 @@
             document.addEventListener('visibilitychange', () => {
                 if (document.hidden) {
                     state.activeElapsedMs += Date.now() - state.lastFocusTs;
-                } else {
+                    } else {
                     state.lastFocusTs = Date.now();
+                  // Réacquiert le Wake Lock après retour au focus
+                  preventSleep();
                 }
             });
         }
@@ -1250,7 +1252,19 @@
                 try { await navigator.wakeLock.request('screen'); } catch (e) { /* تجاهل */ }
             }
         }
+        // Garde la référence au wake lock
+        let wakeLock = null;
 
+        async function preventSleep() {
+            try {
+                wakeLock = await navigator.wakeLock.request('screen');
+                wakeLock.addEventListener('release', () => {
+                    console.log('Wake Lock released');
+                });
+            } catch (err) {
+                console.warn('Wake Lock non disponible :', err);
+            }
+        }
         // التنقل بين الصفحات
         function showPage(id) {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -1471,6 +1485,8 @@
             const item = pickNext();
             if (!item) { endQuiz(); return; }
             state.asked.add(`${item.surah}:${item.verse}`);
+            // Empêche la mise en veille à chaque nouvelle question
+            preventSleep();
 
             const mode = state.mode;
             if (mode === 'verse-number') {
@@ -1514,6 +1530,9 @@
             showPage('quiz-page');
             updateStats();
             nextQuestionFlow();
+            // Active le Wake Lock dès le début du quiz
+            preventSleep();
+
             preventSleep();
         }
 
