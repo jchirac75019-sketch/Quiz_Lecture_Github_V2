@@ -713,6 +713,14 @@
            padding: 12px; 
            margin-top: 10px; 
        }
+          #verse-audio {
+           margin-bottom: 0;    /* Annule l’espace sous le lecteur audio */
+           padding: 0;
+       }
+          .audio-controls {
+           margin-top: 2px;
+           gap: 6px;          /* Vous pouvez réduire aussi le gap */
+       }
    }
 
         @media (max-width: 480px) {
@@ -857,7 +865,7 @@
                         <h2>🎧 استمع للتلاوة وحدد الآية</h2>
                         
                         <div class="audio-container">
-                            <audio id="verse-audio" controls style="width: 100%; margin: 20px 0;"></audio>
+                            <audio id="verse-audio" controls style="width: 100%; margin: 1px 0;"></audio>
                             <div class="audio-controls">
                                 <button id="play-audio" class="action-btn">▶️ تشغيل</button>
                                 <button id="repeat-audio" class="action-btn">🔁 إعادة</button>
